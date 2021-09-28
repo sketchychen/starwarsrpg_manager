@@ -35,12 +35,13 @@ SKILLS_GENERAL = (
 
 BRAWL = ('brawl', 'BRAWL', BRAWN)
 GUNNERY = ('gunnery', 'Gunnery', AGILITY)
+LIGHTSABER = ('lightsaber', 'Lightsaber', BRAWN)
 MELEE = ('melee', 'MELEE', BRAWN)
 RANGED_LIGHT = ('ranged_light', 'Ranged - Light', AGILITY)
 RANGED_HEAVY = ('ranged_heavy', 'Ranged - Heavy', AGILITY)
 
 SKILLS_COMBAT = (
-    BRAWL, GUNNERY, MELEE,
+    BRAWL, GUNNERY, LIGHTSABER, MELEE,
     RANGED_LIGHT, RANGED_HEAVY,
 )
 

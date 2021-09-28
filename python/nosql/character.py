@@ -5,6 +5,8 @@ character = {
     'name': '',
     'species': {},  # ref constants SPECIES
     'career': {},  # ref constants CAREER
+    'total_xp': 100,
+    'available_xp': 100,
     'stats': {
         'soak_value': 0,
         'force_rating': 0,
@@ -46,10 +48,10 @@ character = {
         },
     },
     'talents': [],  # agg constants TALENT
-    'equipment': {  # agg constants ITEM
-        'weapons': [],
-        'armor': [],
-        'personal': [],
+    'equipment': {
+        'weapons': [],  # agg constants & custom ITEM
+        'armor': [],  # agg constants & custom ITEM
+        'personal': [],  # agg constants & custom ITEM
             # {
             #     'name': '',
             #     'description': '',
