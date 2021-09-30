@@ -1,4 +1,4 @@
-from .talent import Talent
+from objects import Talent
 
 """
 Talent Tree is a weird graph.
@@ -43,14 +43,26 @@ class Node:
         self.edges[node_id] = weight
 
 
-class TalentNode(Node):
-    def __init__(self, node_id: int, talent: Talent):
+class TrackedNode(Node):
+    def __init__(
+        self,
+        node_id: int,
+    ):
         Node.__init__(self, node_id)
-        self.talent = talent
-        self.locked = True
+        self.visited = False
 
-    def mark_as_unlocked(self):
-        self.locked = False
+    def mark_as_visited(self, via: int):
+        self.visited = True
+
+
+class TalentNode(TrackedNode):
+    def __init__(
+        self,
+        node_id: int,
+        talent: Talent,
+    ):
+        TrackedNode.__init__(self, node_id)
+        self.talent = Talent
 
 
 class Graph:
@@ -65,3 +77,4 @@ class Graph:
 class TalentGraph(Graph):
     def __init__():
         self.paths_taken = []
+

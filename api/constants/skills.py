@@ -56,3 +56,14 @@ XENOLOGY = ('xenology', 'Xenology', INTELLECT)
 SKILLS_KNOWLEDGE = (
     CORE_WORLDS, EDUCATION, LORE, OUTER_RIM, UNDERWORLD, WARFARE, XENOLOGY
 )
+
+SKILLS_ALL = SKILLS_GENERAL + SKILLS_COMBAT + SKILLS_KNOWLEDGE
+
+SKILLS_DICT = {
+    x[0]: {
+        'career': False,
+        'rank': 0,
+    }
+    for x
+    in SKILLS_ALL
+}
