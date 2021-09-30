@@ -3,7 +3,7 @@ import json
 from flask import Flask
 from flask_cors import CORS
 
-from models import db
+from documents import db
 from routes import api
 
 

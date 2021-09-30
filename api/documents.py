@@ -7,7 +7,7 @@ from mongoengine import (
     StringField,
 )
 
-from constants import characteristics, skills, talents
+from constants import lexicon, talents
 
 
 db = MongoEngine(app)
@@ -59,7 +59,7 @@ class Character(db.Document):
             characteristic.PRESENCE[0]: 0,
         }
     )
-    skills = DictField(default=skills.SKILLS_DICT)
+    skills = DictField(default=skills.SKILLS_DICT_DEFAULTS)
     talents = ListField(ReferenceField('Talent'))
     # equipment = {
     #     'weapons': [],  # agg constants & custom ITEM
