@@ -1,6 +1,6 @@
 from flask_restx import Api, Resource, fields
 import jwt
-from models import db, Users
+from .documents import User
 
 
 api = Api(version='1.0', title='Star Wars FFG Manager API')

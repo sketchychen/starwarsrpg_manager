@@ -1,25 +1,24 @@
-import json
-
 from flask import Flask
 from flask_cors import CORS
+from flask_mongoengine import MongoEngine
 
-from documents import db
-from routes import api
+from .routes import api
 
 
 app = Flask(__name__)
 app.config['MONGODB_SETTINGS'] = {
-    'db': 'project1',
-    'host': '192.168.1.35',
-    'port': 12345,
-    'username':'webapp',
-    'password':'pwd123'
+    'db': 'swrpg_manager',
+    'host': 'mongodb://127.0.0.1:27017/swrpg_manager',
+    'port': 27017,
+    'username':'admin',
+    'password':'1234',
 }
-app.config.from_pyfile('the-config.cfg')
-app.config.from_object('api.config.BaseConfig')
 
+app.config.from_object('api.config.Config')
+
+db = MongoEngine(app)
 db.init_app(app)
-api.init_app(app)
+rest_api.init_app(app)
 CORS(app)
 
 """

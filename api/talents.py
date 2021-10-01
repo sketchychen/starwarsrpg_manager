@@ -1,4 +1,6 @@
-from types import Talent
+from .custom_types import Talent
+
+## CONSIDER FORMATTING THESE AS DELIMITED FILE
 
 AGGRESSIVE_NEGOTIATIONS: Talent = {
     'name': 'Aggressive Negotiations',
