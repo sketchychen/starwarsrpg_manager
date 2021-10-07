@@ -1,20 +1,20 @@
 import os
+
 from datetime import timedelta
 
 
-BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+ENV = os.environ.get('FLASK_ENV')
 
 
 class Config(object):
     """
     Base config, uses staging database server.
     """
+    DEBUG = False
     TESTING = False
-    DB_SERVER = '192.168.1.56'
-
-    @property
-    def DATABASE_URI(self):  # Note: all caps
-        return f"mongodb://user@{self.DB_SERVER}/foo"
+    DB_SERVER = 'localhost'
+    MONDODB_DB = 'swrpg_manager'
+    MONGODB_PORT = 27017
 
 
 class ProductionConfig(Config):
@@ -27,6 +27,7 @@ class ProductionConfig(Config):
 
 
 class DevelopmentConfig(Config):
+    DEBUG = True
     DB_SERVER = 'localhost'
 
 
@@ -34,3 +35,12 @@ class TestingConfig(Config):
     DB_SERVER = 'localhost'
     DATABASE_URI = 'mongodb:///:memory:'
     TESTING = True
+
+
+def load_config():
+    if ENV == 'production':
+        return ProductionConfig
+    elif ENV == 'testing':
+        return TestingConfig
+    else:
+        return DevelopmentConfig

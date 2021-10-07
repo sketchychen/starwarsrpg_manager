@@ -1,12 +1,12 @@
 from flask_restx import Api, Resource, fields
 import jwt
-from .documents import User
+from .documents import user
 
 
-api = Api(version='1.0', title='Star Wars FFG Manager API')
+rest_api = Api(version='1.0', title='Star Wars FFG Manager API')
 
 
-signup_model = api.model(
+signup_model = rest_api.model(
     'SignUpModel',
     {
         'username': fields.String(required=True, min_length=2, max_length=32),
@@ -15,13 +15,13 @@ signup_model = api.model(
     }
 )
 
-@api.route('/api/users/register')
+@rest_api.route('/api/users/register')
 class Register(Resource):
     """
         Creates a new user by taking 'signup_model' input
     """
 
-    @api.expect(signup_model, validate=True)
+    @rest_api.expect(signup_model, validate=True)
     def post(self):
         req_data = request.get_json()
 
