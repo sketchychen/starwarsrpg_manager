@@ -14,7 +14,7 @@ from mongoengine import (
 )
 
 from . import audit, campaign, user
-from .. import stats, skills, talents
+from .lib import stats, skills, talents
 
 
 class Character(Document):
