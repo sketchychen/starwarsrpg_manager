@@ -1,6 +1,7 @@
 from mongoengine import (
     Document,
     EmbeddedDocument,
+    EmbeddedDocumentField,
     ListField,
     MultiLineStringField,
     LazyReferenceField,
@@ -8,7 +9,7 @@ from mongoengine import (
     StringField,
 )
 
-from . import character, user
+from . import audit, character, user
 
 class Campaign(Document):
     """
@@ -20,7 +21,7 @@ class Campaign(Document):
     owner = ReferenceField(user.User)
     characters = ListField(ReferenceField(character.Character))
     timeline = EmbeddedDocumentListField(Event)
-    blurb = MultiLineStringField()
+    synopsis = MultiLineStringField()
 
 
 class Event(EmbeddedDocument):
@@ -30,4 +31,5 @@ class Event(EmbeddedDocument):
     """
     owner = ReferenceField(user.User)
     name = StringField(required=True, min_length=4)
-    characters = ListField(LazyReferenceField(character.Character))
+    tags = ListField(StringField(max_length=32))
+    changelogs = MapField(EmbeddedDocumentField(document_type=audit.FieldChangeLog))

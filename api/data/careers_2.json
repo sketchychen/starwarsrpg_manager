@@ -1,0 +1,213 @@
+{
+    "Bounty Hunter": {
+        "skills": [
+            "Athletics",
+            "Brawl",
+            "Perception",
+            "Piloting - Planetary",
+            "Piloting - Space",
+            "Ranged - Heavy",
+            "Streetwise",
+            "Vigiliance"
+        ],
+        "source": "Edge of the Empire",
+        "specializations": {
+            "Gadgeteer": {
+                "skills": ["", "", "", ""],
+                "talents": {
+                    "5_0": {"talent": "", "edges": []},
+                    "5_1": {"talent": "", "edges": []},
+                    "5_2": {"talent": "", "edges": []},
+                    "5_3": {"talent": "", "edges": []},
+                    "10_0": {"talent": "", "edges": []},
+                    "10_1": {"talent": "", "edges": []},
+                    "10_2": {"talent": "", "edges": []},
+                    "10_3": {"talent": "", "edges": []},
+                    "15_0": {"talent": "", "edges": []},
+                    "15_1": {"talent": "", "edges": []},
+                    "15_2": {"talent": "", "edges": []},
+                    "15_3": {"talent": "", "edges": []},
+                    "20_0": {"talent": "", "edges": []},
+                    "20_1": {"talent": "", "edges": []},
+                    "20_2": {"talent": "", "edges": []},
+                    "20_3": {"talent": "", "edges": []},
+                    "25_0": {"talent": "", "edges": []},
+                    "25_1": {"talent": "", "edges": []},
+                    "25_2": {"talent": "", "edges": []},
+                    "25_3": {"talent": "", "edges": []}
+                }
+            }
+            },
+        },
+    },
+    "Colonist": {
+        "skills": ["", "", "", "", "", "", "", ""],
+        "source": "Edge of the Empire",
+        "specializations": {
+            "": {
+                "skills": ["", "", "", ""],
+                "talents": {
+                    "5_0": {"talent": "", "edges": []},
+                    "5_1": {"talent": "", "edges": []},
+                    "5_2": {"talent": "", "edges": []},
+                    "5_3": {"talent": "", "edges": []},
+                    "10_0": {"talent": "", "edges": []},
+                    "10_1": {"talent": "", "edges": []},
+                    "10_2": {"talent": "", "edges": []},
+                    "10_3": {"talent": "", "edges": []},
+                    "15_0": {"talent": "", "edges": []},
+                    "15_1": {"talent": "", "edges": []},
+                    "15_2": {"talent": "", "edges": []},
+                    "15_3": {"talent": "", "edges": []},
+                    "20_0": {"talent": "", "edges": []},
+                    "20_1": {"talent": "", "edges": []},
+                    "20_2": {"talent": "", "edges": []},
+                    "20_3": {"talent": "", "edges": []},
+                    "25_0": {"talent": "", "edges": []},
+                    "25_1": {"talent": "", "edges": []},
+                    "25_2": {"talent": "", "edges": []},
+                    "25_3": {"talent": "", "edges": []}
+                }
+            }
+            },
+        },
+    },
+    "Explorer": {
+        "skills": ["", "", "", "", "", "", "", ""],
+        "source": "Edge of the Empire",
+        "specializations": {
+            "": {
+                "skills": ["", "", "", ""],
+                "talents": {
+                    "5_0": {"talent": "", "edges": []},
+                    "5_1": {"talent": "", "edges": []},
+                    "5_2": {"talent": "", "edges": []},
+                    "5_3": {"talent": "", "edges": []},
+                    "10_0": {"talent": "", "edges": []},
+                    "10_1": {"talent": "", "edges": []},
+                    "10_2": {"talent": "", "edges": []},
+                    "10_3": {"talent": "", "edges": []},
+                    "15_0": {"talent": "", "edges": []},
+                    "15_1": {"talent": "", "edges": []},
+                    "15_2": {"talent": "", "edges": []},
+                    "15_3": {"talent": "", "edges": []},
+                    "20_0": {"talent": "", "edges": []},
+                    "20_1": {"talent": "", "edges": []},
+                    "20_2": {"talent": "", "edges": []},
+                    "20_3": {"talent": "", "edges": []},
+                    "25_0": {"talent": "", "edges": []},
+                    "25_1": {"talent": "", "edges": []},
+                    "25_2": {"talent": "", "edges": []},
+                    "25_3": {"talent": "", "edges": []}
+                }
+            }
+            },
+        },
+    },
+    "Hired Gun": {
+        "skills": ["", "", "", "", "", "", "", ""],
+        "source": "Edge of the Empire",
+        "specializations": {
+            "": {
+                "skills": ["", "", "", ""],
+                "talents": {
+                    "5_0": {"talent": "", "edges": []},
+                    "5_1": {"talent": "", "edges": []},
+                    "5_2": {"talent": "", "edges": []},
+                    "5_3": {"talent": "", "edges": []},
+                    "10_0": {"talent": "", "edges": []},
+                    "10_1": {"talent": "", "edges": []},
+                    "10_2": {"talent": "", "edges": []},
+                    "10_3": {"talent": "", "edges": []},
+                    "15_0": {"talent": "", "edges": []},
+                    "15_1": {"talent": "", "edges": []},
+                    "15_2": {"talent": "", "edges": []},
+                    "15_3": {"talent": "", "edges": []},
+                    "20_0": {"talent": "", "edges": []},
+                    "20_1": {"talent": "", "edges": []},
+                    "20_2": {"talent": "", "edges": []},
+                    "20_3": {"talent": "", "edges": []},
+                    "25_0": {"talent": "", "edges": []},
+                    "25_1": {"talent": "", "edges": []},
+                    "25_2": {"talent": "", "edges": []},
+                    "25_3": {"talent": "", "edges": []}
+                }
+            }
+            },
+        },
+    },
+    "Smuggler": {
+        "skills": [
+            "Coordination",
+            "Deception",
+            "Underworld",
+            "Perception",
+            "Piloting - Space",
+            "Skulduggery",
+            "Streetwise",
+            "Vigiliance"
+        ],
+        "source": "Edge of the Empire",
+        "specializations": {
+            "Gunslinger": {
+                "skills": [
+                    "Coercion", "Cool", "Outer Rim", "Ranged - Light"
+                ],
+                "talents": {
+                    "5_0": {"talent": "", "edges": []},
+                    "5_1": {"talent": "", "edges": []},
+                    "5_2": {"talent": "", "edges": []},
+                    "5_3": {"talent": "", "edges": []},
+                    "10_0": {"talent": "", "edges": []},
+                    "10_1": {"talent": "", "edges": []},
+                    "10_2": {"talent": "", "edges": []},
+                    "10_3": {"talent": "", "edges": []},
+                    "15_0": {"talent": "", "edges": []},
+                    "15_1": {"talent": "", "edges": []},
+                    "15_2": {"talent": "", "edges": []},
+                    "15_3": {"talent": "", "edges": []},
+                    "20_0": {"talent": "", "edges": []},
+                    "20_1": {"talent": "", "edges": []},
+                    "20_2": {"talent": "", "edges": []},
+                    "20_3": {"talent": "", "edges": []},
+                    "25_0": {"talent": "", "edges": []},
+                    "25_1": {"talent": "", "edges": []},
+                    "25_2": {"talent": "", "edges": []},
+                    "25_3": {"talent": "", "edges": []}
+                }
+            }
+        },
+    "Technician": {
+        "skills": ["", "", "", "", "", "", "", ""],
+        "source": "Edge of the Empire",
+        "specializations": {
+            "": {
+                "skills": ["", "", "", ""],
+                "talents": {
+                    "5_0": {"talent": "", "edges": []},
+                    "5_1": {"talent": "", "edges": []},
+                    "5_2": {"talent": "", "edges": []},
+                    "5_3": {"talent": "", "edges": []},
+                    "10_0": {"talent": "", "edges": []},
+                    "10_1": {"talent": "", "edges": []},
+                    "10_2": {"talent": "", "edges": []},
+                    "10_3": {"talent": "", "edges": []},
+                    "15_0": {"talent": "", "edges": []},
+                    "15_1": {"talent": "", "edges": []},
+                    "15_2": {"talent": "", "edges": []},
+                    "15_3": {"talent": "", "edges": []},
+                    "20_0": {"talent": "", "edges": []},
+                    "20_1": {"talent": "", "edges": []},
+                    "20_2": {"talent": "", "edges": []},
+                    "20_3": {"talent": "", "edges": []},
+                    "25_0": {"talent": "", "edges": []},
+                    "25_1": {"talent": "", "edges": []},
+                    "25_2": {"talent": "", "edges": []},
+                    "25_3": {"talent": "", "edges": []}
+                }
+            }
+            },
+        },
+    }
+}
+}
