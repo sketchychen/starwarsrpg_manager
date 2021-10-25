@@ -1,5 +1,6 @@
 from mongoengine import (
-    Document,
+    EmbeddedDocument,
+    IntField,
     DynamicField,
     LazyReferenceField,
 )
