@@ -16,7 +16,7 @@ class Register(Resource):
         {
             'name': fields.String(required=True, min_length=2, max_length=32),
             'email': fields.String(required=True, min_length=4, max_length=64),
-            'passcode': fields.String(required=True, min_length=4, max_length=64),
+            'passcode': fields.String(required=True, min_length=8, max_length=64),
         }
     )
 
@@ -24,7 +24,7 @@ class Register(Resource):
     def post(self):
         kwargs = api.payload
 
-        self.dao.create_one(**kwargs)
+        return self.dao.create_one(**kwargs)
 
 
 @ns.route('/user/<string:name>')

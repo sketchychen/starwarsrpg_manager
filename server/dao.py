@@ -1,4 +1,5 @@
-import jwt
+# import jwt
+from passlib.hash import pbkdf2_sha256
 from mongoengine import Document, DoesNotExist, ValidationError
 
 from .documents import user
@@ -14,34 +15,39 @@ class DAO:
 
     def get_one(self, pk):
         try:
-            return self.document_cls.objects.get(pk=pk).to_mongo(), 201
+            result = self.document_cls.objects.get(pk=pk).to_mongo()
+            return result, 200
         except DoesNotExist:
             return 'Document not found.', 404
 
     def get_many(self, **kwargs):
         try:
-            return self.document_cls.objects(**kwargs).to_mongo()
-        except:
-            pass
+            result = self.document_cls.objects(**kwargs).to_mongo()
+            return result, 200
+        except Exception as e:
+            return e.message, 500
 
     def create_one(self, **kwargs):
         try:
-            return self.document_cls.objects.create(owner=auth_user, **kwargs)
+            result = self.document_cls.objects.create(owner=auth_user, **kwargs)
+            return result, 201
         except Exception as e:
-            raise e
+            return e.message, 400
 
     def update_one(self, document: Document, **kwargs):
         """
         Returns the number of updated documents (unless full_result is True)
         """
         try:
-            return obj.update(**kwargs)
-        except:
-            pass
+            result = obj.update(**kwargs)
+            return result, 200
+        except Exception as e:
+            return e.message, 400
 
     def delete_one(self, document):
         try:
-            return documents.delete()
+            result = document.delete()
+            return result, 202
         except:
             return 'Unable to delete document.', 500
 
@@ -52,7 +58,7 @@ class UserDAO(DAO):
 
     def create_one(self, **kwargs):
         try:
-
-            return self.document_cls.objects.create(is_admin=False, **kwargs), 201
+            result = self.document_cls.objects.create(is_admin=False, **kwargs)
+            return result, 201
         except ValidationError as e:
-            raise e
+            return e.message, 400

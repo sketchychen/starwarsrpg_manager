@@ -4,7 +4,7 @@ from datetime import timedelta
 
 
 ENV = os.environ.get('FLASK_ENV')
-ROOT_DIR = os.path.dirname(__file__)
+SERVER_DIR = os.path.dirname(__file__)
 
 
 class Config(object):
