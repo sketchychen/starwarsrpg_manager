@@ -6,14 +6,14 @@ from mongoengine import (
     EmbeddedDocumentField,
     EmbeddedDocumentListField,
     IntField,
+    LazyReferenceField,
     ListField,
     MapField,
     MultiLineStringField,
-    ReferenceField,
     StringField,
 )
 
-from . import audit, campaign, user
+from . import FieldChangeLog, User
 from ..lib import stats, skills
 
 
@@ -89,7 +89,8 @@ class Character(Document):
     M:M Character:Campaign
     1:M Character:Item
     """
-    owner = ReferenceField(user.User)
+    owner = LazyReferenceField(User)
+    editors = ListField(LazyReferenceField(User))
     is_npc = BooleanField(default=False)
     name = StringField(required=True, min_length=2)
     species = StringField(required=True, choices=())
