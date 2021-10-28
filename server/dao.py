@@ -18,45 +18,48 @@ class DAO:
     def get_one(self, pk):
         try:
             result = self.document_cls.objects.get(pk=pk).to_mongo()
-            return result, 200
+            return {'success': True, 'data': result}, 200
         except DoesNotExist:
-            return 'Document not found.', 404
+            return {'success': False, 'message': 'Document not found.'}, 404
 
     def get_many(self, **kwargs):
         try:
             result = self.document_cls.objects(**kwargs).to_mongo()
-            return result, 200
+            return {'success': True, 'data': result}, 200
         except Exception as e:
-            return e.message, 500
+            return {'success': False, 'message': e.message}, 500
 
     def create_one(self, **kwargs):
         try:
             result = self.document_cls.objects.create(owner=auth_user, **kwargs)
             return result, 201
         except Exception as e:
-            return e.message, 400
+            return {'success': False, 'message': e.message}, 400
 
     def update_one(self, document: Document, **kwargs):
         """
         Returns the number of updated documents (unless full_result is True)
         """
         try:
-            result = obj.update(**kwargs)
-            return result, 200
+            result = obj.update(**kwargs).to_mongo()
+            return {'success': True, 'data': result}, 200
         except Exception as e:
-            return e.message, 400
+            return {'success': False, 'message': e.message}, 400
 
     def delete_one(self, document):
         try:
             result = document.delete()
-            return result, 202
+            return {'success': True, 'data': result}, 202
         except:
-            return 'Unable to delete document.', 500
+            return {'success': False, 'message': 'Unable to delete document.'}, 500
 
 
 class UserDAO(DAO):
     def __init__(self):
         self.document_cls = user.User
+
+    def get_one(self, pk):
+        pass
 
     def create_one(self, **kwargs):
         try:
@@ -66,4 +69,4 @@ class UserDAO(DAO):
             self.document_cls.objects.create(is_admin=False, **kwargs)
             return {'success': True}, 201
         except (ValidationError, NotUniqueError) as e:
-            return e.message, 400
+            return {'success': False, 'message': e.message}, 400
