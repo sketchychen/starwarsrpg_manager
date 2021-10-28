@@ -1,6 +1,8 @@
 # import jwt
-from passlib.hash import pbkdf2_sha256
-from mongoengine import Document, DoesNotExist, ValidationError
+from passlib.hash import bcrypt
+from mongoengine import (
+    Document, DoesNotExist, NotUniqueError, ValidationError
+)
 
 from .documents import user
 from .permissions import Permissions
@@ -58,7 +60,10 @@ class UserDAO(DAO):
 
     def create_one(self, **kwargs):
         try:
-            result = self.document_cls.objects.create(is_admin=False, **kwargs)
-            return result, 201
-        except ValidationError as e:
+            plain_pass = kwargs['passcode']
+            hashed_pass = bcrypt.hash(plain_pass)
+            kwargs['passcode'] = hashed_pass
+            self.document_cls.objects.create(is_admin=False, **kwargs)
+            return {'success': True}, 201
+        except (ValidationError, NotUniqueError) as e:
             return e.message, 400

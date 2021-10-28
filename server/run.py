@@ -21,7 +21,7 @@ db.init_app(app)
 api = Api(version='1.0', title='Star Wars FFG Manager API')
 api.add_namespace(resources.ns)
 resources.ns.add_resource(resources.Register, '/register')
-resources.ns.add_resource(resources.RouteUser, '/user')
+resources.ns.add_resource(resources.RouteUser, '/user/<string:name>')
 resources.ns.add_resource(resources.CreateCharacter, '/character/create')
 api.init_app(app)
 

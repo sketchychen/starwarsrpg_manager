@@ -24,5 +24,5 @@ class User(Document):
         required=True, unique=True,
         min_length=4, max_length=64
     )
-    passcode = StringField(required=True, min_length=8, max_length=32)
+    passcode = StringField(required=True, min_length=8)
     is_admin = BooleanField(required=True, default=False)
