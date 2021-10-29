@@ -16,6 +16,9 @@ from .audit import FieldChangeLog
 from .user import User
 
 
+__all__ = ('Campaign', )
+
+
 class Event(EmbeddedDocument):
     """
     Session summaries, character side stories, behind-the-scenes updates, etc.

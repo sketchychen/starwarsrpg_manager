@@ -8,12 +8,12 @@ DEFENSE = 'Defense'
 RANGED = 'Ranged'
 MELEE = 'Melee'
 
-BRAWN: str = 'Brawn'
-AGILITY: str = 'Agility'
-INTELLECT: str = 'Intellect'
-CUNNING: str = 'Cunning'
-WILLPOWER: str = 'Willpower'
-PRESENCE: str = 'Presence'
+BRAWN = 'Brawn'
+AGILITY = 'Agility'
+INTELLECT = 'Intellect'
+CUNNING = 'Cunning'
+WILLPOWER = 'Willpower'
+PRESENCE = 'Presence'
 
 STATS_DICT = {
     SOAK_VALUE: 0,

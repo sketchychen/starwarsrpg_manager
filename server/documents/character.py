@@ -17,6 +17,9 @@ from . import FieldChangeLog, User
 from ..lib import stats, skills
 
 
+__all__ = ('Character',)
+
+
 class Ability(EmbeddedDocument):
     """
     Record character's rank of acquired talent and special abilities.

@@ -1,36 +1,32 @@
 from mongoengine import Document
 
-from .documents.user import User
-
+from documents.user import User
 
 class Permissions:
     """
-    Permission types:
-    0: Admin
-    1: Editor
-    2: Viewer
+    Checks current_user's accessibility of a given document.
 
-    TODO: replace auth_user with actual login token
+    Permission levels:
+    5 Literally no one is allowed to see
+        anyone's passcodes, even if it's encrypted. Absolutely no.
+    4 Admin (ALL THE THINGS)
+    3 Owner (GET, UPDATE, DELETE)
+    2 Editor (GET, UPDATE)
+    1 Private (GET,)
+    0 Public (GET,)
+
+    TODO: Determine public vs private read accessibility
     """
-    auth_user = 'sketchychen'
 
-    def __init__(self, document: Document):
-        self.document = document
+    def __init__(self, current_user):
+        self.user_pk = current_user
 
-    @property
-    def auth_user_is_owner(self):
-        if isinstance(self.document, User):
-            return auth_user == document.name
-        else:
-            return auth_user == document.owner
-
-    @property
-    def auth_user_can_edit(self):
-        if user.is_admin or self.auth_user_is_owner:
-            return True
-        else:
-            return self.auth_user in self.document.editors
-
-    @property
-    def auth_user_can_view(self):
-        return True
+    def get_level(self, document: Document):
+        user = User.objects.get(pk=self.user_pk)
+        if user.is_admin:
+            return 4
+        if self.user_pk == getattr(document, 'owner', document.pk):
+            return 3
+        if self.user_pk in getattr(document, 'editors', ()):
+            return 2
+        return 0

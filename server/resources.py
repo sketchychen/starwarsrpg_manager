@@ -1,6 +1,15 @@
 from flask_restx import Namespace, Resource, fields
 
-from .dao import UserDAO
+from dao import DAO, UserDAO
+
+
+"""
+Layers:
+resource => dao => documents
+
+TODO:
+auth session tokens
+"""
 
 
 ns = Namespace('api')
@@ -25,12 +34,30 @@ class Register(Resource):
         return self.dao.create_one(**kwargs)
 
 
+class Login(Resource):
+    dao = UserDAO()
+
+    login_user = ns.model(
+        'LoginUser',
+        {
+            'name': fields.String(required=True, min_length=2, max_length=32),
+            'passcode': fields.String(required=True, min_length=8, max_length=64),
+        }
+    )
+
+    @ns.expect(login_user, validate=True)
+    def post(self):
+        kwargs = ns.payload
+
+        return 'howdy'
+
+
+
 class RouteUser(Resource):
     dao = UserDAO()
 
     def get(self, name):
         result = self.dao.get_one(pk=name)
-
         return result
 
     def put(self, **kwargs):
@@ -41,7 +68,7 @@ class RouteUser(Resource):
 
 class CreateCharacter(Resource):
     """
-    TODO: Use Permissions and CharacterDAO
+    TODO: Use CharacterDAO
     """
     new_character = ns.model(
         'NewCharacter',
