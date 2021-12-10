@@ -5,7 +5,6 @@ from datetime import timedelta
 
 ENV = os.environ.get('FLASK_ENV')
 
-
 class Config(object):
     """
     Base config, uses staging database server.
@@ -15,6 +14,7 @@ class Config(object):
     DB_SERVER = 'localhost'
     MONDODB_DB = 'swrpg_manager'
     MONGODB_PORT = 27017
+    HOST_PORT = 4023
 
 
 class ProductionConfig(Config):
