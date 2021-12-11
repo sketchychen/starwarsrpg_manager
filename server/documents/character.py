@@ -6,40 +6,18 @@ from mongoengine import (
     EmbeddedDocumentField,
     EmbeddedDocumentListField,
     IntField,
+    LazyReferenceField,
     ListField,
     MapField,
     MultiLineStringField,
-    ReferenceField,
     StringField,
 )
 
-from . import audit, campaign, user
-from .. import stats, skills, talents
+from . import FieldChangeLog, User
+from ..lib import stats, skills
 
 
-class Character(Document):
-    """
-    Can be either PC or NPC, denoted by field 'is_npc'.
-
-    1:M User:Character
-    M:M Character:Campaign
-    1:M Character:Item
-    """
-    owner = ReferenceField(user.User)
-    is_npc = BooleanField(default=False)
-    name = StringField(required=True, min_length=2)
-    species = StringField(required=True, choices=())
-    campaigns = ListField(ReferenceField(campaign.Campaign))
-    career = EmbeddedDocumentField(Career)
-    total_xp = IntField(default=100)
-    available_xp = IntField(default=100)
-    stats = DictField(default=stats.STATS_DICT)
-    skills = DictField(default=skills.SKILLS_DICT)
-    abilities = EmbeddedDocumentListField(document_type=Ability)
-    credits = IntField(default=0)
-    equipment = EmbeddedDocumentListField(document_type=Item)
-    notes = MultiLineStringField()
-    changelogs = MapField(EmbeddedDocumentField(document_type=audit.FieldChangeLog))
+__all__ = ('Character',)
 
 
 class Ability(EmbeddedDocument):
@@ -71,6 +49,8 @@ class Item(EmbeddedDocument):
     While the official books provide the standard Items,
     these fields are provided in case users are allowed to personalize their own.
     """
+    meta = {'allow_inheritance': True}
+
     name = StringField(primary_key=True, unique=True, required=True, min_length=2)
     category = StringField(required=True, default='Gear')
     description = StringField(required=True, min_length=2)
@@ -84,7 +64,7 @@ class Item(EmbeddedDocument):
 class Weapon(Item):
     category = StringField(required=True, default='Weapon')
     hp = IntField(null=True, default=0)
-    skill = StringField(null=True, choices=skills.SKILLS_ALL)
+    skill = StringField(null=True, choices=skills.SKILLS_TUPLE)
     damage = IntField(null=True, default=0)
     range_type = StringField(null=True, choices=('Engaged', 'Short', 'Medium', 'Long'))
     special = MapField(field=IntField())
@@ -102,3 +82,28 @@ class Mod(Item):
     hp = IntField(null=True, default=0)
     base_modifier = MapField(IntField())
     mod_options = StringField(null=True)  # tentative
+
+
+class Character(Document):
+    """
+    Can be either PC or NPC, denoted by field 'is_npc'.
+
+    1:M User:Character
+    M:M Character:Campaign
+    1:M Character:Item
+    """
+    owner = LazyReferenceField(User)
+    editors = ListField(LazyReferenceField(User))
+    is_npc = BooleanField(default=False)
+    name = StringField(required=True, min_length=2)
+    species = StringField(required=True, choices=())
+    career = EmbeddedDocumentField(Career)
+    total_xp = IntField(default=100)
+    available_xp = IntField(default=100)
+    stats = DictField(default=stats.STATS_DICT)
+    skills = DictField(default=skills.SKILLS_DICT)
+    abilities = EmbeddedDocumentListField(document_type=Ability)
+    credits = IntField(default=0)
+    equipment = EmbeddedDocumentListField(document_type=Item)
+    notes = MultiLineStringField()
+    changelogs = MapField(EmbeddedDocumentField(document_type=audit.FieldChangeLog))

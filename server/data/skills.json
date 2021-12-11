@@ -1,0 +1,142 @@
+{
+    "Astrogation": {
+        "stat": "Intellect",
+        "type": "General"
+    },
+    "Athletics": {
+        "stat": "Brawn",
+        "type": "General"
+    },
+    "Brawl": {
+        "stat": "Brawn",
+        "type": "Combat"
+    },
+    "Charm": {
+        "stat": "Presence",
+        "type": "General"
+    },
+    "Coercion": {
+        "stat": "Willpower",
+        "type": "General"
+    },
+    "Computers": {
+        "stat": "Intellect",
+        "type": "General"
+    },
+    "Cool": {
+        "stat": "Presence",
+        "type": "General"
+    },
+    "Coordination": {
+        "stat": "Agility",
+        "type": "General"
+    },
+    "Core Worlds": {
+        "stat": "Intellect",
+        "type": "Knowledge"
+    },
+    "Education": {
+        "stat": "Intellect",
+        "type": "Knowledge"
+    },
+    "Deception": {
+        "stat": "Cunning",
+        "type": "General"
+    },
+    "Discipline": {
+        "stat": "Willpower",
+        "type": "General"
+    },
+    "Gunnery": {
+        "stat": "Agility",
+        "type": "Combat"
+    },
+    "Leadership": {
+        "stat": "Presence",
+        "type": "General"
+    },
+    "Lightsaber": {
+        "stat": "Brawn",
+        "type": "Combat"
+    },
+    "Lore": {
+        "stat": "Intellect",
+        "type": "Knowledge"
+    },
+    "Mechanics": {
+        "stat": "Intellect",
+        "type": "General"
+    },
+    "Medicine": {
+        "stat": "Intellect",
+        "type": "General"
+    },
+    "Melee": {
+        "stat": "Brawn",
+        "type": "Combat"
+    },
+    "Negotiation": {
+        "stat": "Presence",
+        "type": "General"
+    },
+    "Outer Rim": {
+        "stat": "Intellect",
+        "type": "Knowledge"
+    },
+    "Perception": {
+        "stat": "Cunning",
+        "type": "General"
+    },
+    "Piloting - Planetary": {
+        "stat": "Agility",
+        "type": "General"
+    },
+    "Piloting - Space": {
+        "stat": "Agility",
+        "type": "General"
+    },
+    "Ranged - Heavy": {
+        "stat": "Agility",
+        "type": "Combat"
+    },
+    "Ranged - Light": {
+        "stat": "Agility",
+        "type": "Combat"
+    },
+    "Resilience": {
+        "stat": "Brawn",
+        "type": "General"
+    },
+    "Skulduggery": {
+        "stat": "Cunning",
+        "type": "General"
+    },
+    "Stealth": {
+        "stat": "Agility",
+        "type": "General"
+    },
+    "Streetwise": {
+        "stat": "Cunning",
+        "type": "General"
+    },
+    "Survival": {
+        "stat": "Cunning",
+        "type": "General"
+    },
+    "Underworld": {
+        "stat": "Intellect",
+        "type": "Knowledge"
+    },
+    "Vigilance": {
+        "stat": "Willpower",
+        "type": "General"
+    },
+    "Warfare": {
+        "stat": "Intellect",
+        "type": "Knowledge"
+    },
+    "Xenology": {
+        "stat": "Intellect",
+        "type": "Knowledge"
+    }
+}

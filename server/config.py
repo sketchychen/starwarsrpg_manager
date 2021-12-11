@@ -12,7 +12,7 @@ class Config(object):
     """
     DEBUG = False
     TESTING = False
-    DB_SERVER = 'localhost'
+    DB_SERVER = '127.0.0.1'
     MONDODB_DB = 'swrpg_manager'
     MONGODB_PORT = 27017
 
@@ -28,11 +28,11 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    DB_SERVER = 'localhost'
+    DB_SERVER = '127.0.0.1'
 
 
 class TestingConfig(Config):
-    DB_SERVER = 'localhost'
+    DB_SERVER = '127.0.0.1'
     DATABASE_URI = 'mongodb:///:memory:'
     TESTING = True
 
