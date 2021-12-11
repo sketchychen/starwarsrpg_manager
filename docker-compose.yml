@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  server-local:
+    build:
+      context: ./
+      dockerfile:  Dockerfile-local
+    ports:
+      - '2424:2424'  # assigns entrypoint as port 2400, maps to the internal docker app that's listening on port 5000
+    volumes:
+      # we're running this in dev mode, this means Flask will listen for changes and restart the server with those changes
+      # the line below binds the container to "listen" to the files within ./server
+      # now, when a change occurs in your codebase during local development, the container will update the running code accordingly
+      - ./server:/app
