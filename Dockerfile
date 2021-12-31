@@ -16,10 +16,9 @@ RUN pip install -r requirements.txt
 ADD . /app
 
 # Make port 1111 available to the world outside this container
-EXPOSE 5000
+EXPOSE 2424
 
 # Run startup script
 # enter env_vars on the CMD line
-CMD ["python", "server/run.py"]
+CMD ["python", "run.py"]
 
-# CMD /app/docker_entrypoint.sh

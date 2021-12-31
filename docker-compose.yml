@@ -3,7 +3,7 @@ services:
   server-local:
     build:
       context: ./
-      dockerfile:  Dockerfile-local
+      dockerfile:  Dockerfile
     ports:
       - '2424:2424'  # assigns entrypoint as port 2400, maps to the internal docker app that's listening on port 5000
     volumes:
