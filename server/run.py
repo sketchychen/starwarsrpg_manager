@@ -40,7 +40,7 @@ def make_shell_context():
 @app.route('/api/lifecheck/', methods=['GET', 'POST'])
 def lifecheck():
   print('hello')
-  return 'hi'
+  return 'hello'
 
 
 
