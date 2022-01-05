@@ -36,6 +36,14 @@ def make_shell_context():
         'db': db,
     }
 
+@app.route('/api/lifecheck',  methods=['GET'])
+@app.route('/api/lifecheck/', methods=['GET', 'POST'])
+def lifecheck():
+  print('hello')
+  return 'hello'
+
+
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port='2424')
